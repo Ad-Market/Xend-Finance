@@ -24,10 +24,10 @@ const Layout: React.FC<Props> = ({ children }: any) => {
             <MuiThemeProvider theme={light ? themeLight : themeDark}>
                 <ThemeProvider theme={light ? themeLight : themeDark}>
                     <StyledContainer>
-                        <Topbar connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} light={light} setTheme={setTheme} />
+                        <Topbar connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
                         <Header connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
                         <Vaultlist connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
-                        <Footer connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
+                        <Footer connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} light={light} setTheme={setTheme} />
                     </StyledContainer>
                 </ThemeProvider>
             </MuiThemeProvider>

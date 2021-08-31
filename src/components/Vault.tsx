@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Box } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import styled from 'styled-components';
+import DepositeModal from '../components/DepositeModal';
 
 import Button from './Button';
-import AvartarIcon from '../assets/images/layout/avatar.png';
 
 interface Props {
     assetIcon: string;
@@ -18,11 +18,12 @@ interface Props {
 
 const Vault: React.FC<Props> = ({ assetIcon, assetName, fees, balance, netAPY, vaultasset, availableDeposite  }: any) => {
     const theme = useTheme();
-    // const handleOmission = () => {
-    //     setOmitted(!omitted);
-    // }
+    const [isOpenDepositeModal, setOpenDepositeModal] = useState(false);
     return (
         <StyledContainer theme={theme}>
+            <DepositeModal open={isOpenDepositeModal} setOpen={setOpenDepositeModal} assetIcon={assetIcon}
+                 assetName={assetName} fees={fees} balance={balance} netAPY={netAPY} 
+                 vaultasset={vaultasset} availableDeposite={availableDeposite} />
             <td>
                 <Box><img src={assetIcon} alt='' /></Box>
                 <Box>{assetName}</Box>
@@ -43,7 +44,7 @@ const Vault: React.FC<Props> = ({ assetIcon, assetName, fees, balance, netAPY, v
                 {availableDeposite}
             </td>
             <td>
-                <Button variant='outlined' title='Open Vault >' onClick={() => alert()} />
+                <Button variant='outlined' title='Open Vault >' onClick={() => {setOpenDepositeModal(!isOpenDepositeModal);}} />
             </td>
         </StyledContainer>
     );
@@ -58,8 +59,9 @@ const StyledContainer = styled.tr <{ theme: any; }>`
         margin-top: 30px;
         margin-bottom: 30px;
         text-align: center;
+        color: ${({ theme }) => theme.palette.contrast.main};
         >Button {
-            background-color: white;
+            background-color: ${({ theme }) => theme.palette.btnbg.main};
             color: #FF6600;
             width: 110px;
             padding: 5px;

@@ -24,6 +24,13 @@ declare module '@material-ui/core/styles/createPalette' {
         switchOn: PaletteOptions['primary'];
         tabitem: PaletteOptions['primary'];
         tablebody: PaletteOptions['primary'];
+        contrast: PaletteOptions['primary'];
+        modalbg: PaletteOptions['primary'];
+        btnbg: PaletteOptions['primary'];
+        bordercol: PaletteOptions['primary'];
+        footercol: PaletteOptions['primary'];
+        footermore: PaletteOptions['primary'];
+        topbtn: PaletteOptions['primary'];
     }
 }
 
@@ -56,6 +63,13 @@ export const themeLight = createTheme({
         //unsetted
         tabitem: { main: '#969696' },
         tablebody: { main: 'rgb(245,245,245)'},
+        contrast: { main: 'rgb(0,0,0)'},
+        modalbg: { main: 'rgba(255, 255, 255, 0.7)'},
+        btnbg: { main: '#555555'},
+        bordercol: { main: 'rgb(0,0,0)'},
+        footercol: { main: 'rgb(0,0,0)'},
+        footermore: { main: '#999999'},
+        topbtn: { main: '#92939A'},
     }
 });
 
@@ -89,5 +103,12 @@ export const themeDark = createTheme({
         //unsetted
         tabitem: { main: 'rgba(255,255,255, 0.7)' },
         tablebody: { main: '#14163B'},
+        contrast: { main: '#ffffff'},
+        modalbg: { main: '#1C1F29'},
+        btnbg: { main: '#ffffff'},
+        bordercol: { main: 'transparent'},
+        footercol: { main: '#d1d1d1'},
+        footermore: { main: '#1C1D21'},
+        topbtn: { main: '#transparent'},
     }
 });

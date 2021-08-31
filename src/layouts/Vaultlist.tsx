@@ -4,11 +4,10 @@ import { useTheme } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
 import Vault from '../components/Vault';
-import Button from '../components/Button';
-import AvartarIcon from '../assets/images/layout/avatar.png';
+// import Button from '../components/Button';
 import vault1 from '../assets/images/vaults/vault1.png';
 import vault2 from '../assets/images/vaults/vault2.png';
-import vault3 from '../assets/images/vaults/vault3.png';
+// import vault3 from '../assets/images/vaults/vault3.png';
 
 interface Props {
     connected:any;
@@ -19,9 +18,9 @@ interface Props {
 
 const Vaultlist: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted }:any) => {
     const theme = useTheme();
-    const handleOmission = () => {
-        setOmitted(!omitted);
-    }
+    // const handleOmission = () => {
+    //     setOmitted(!omitted);
+    // }
     return (
         <StyledContainer theme={theme}>
             <Box>
@@ -90,9 +89,10 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         align-items: center;
         background-color: rgba(255, 255, 255, 0.05);
         border-radius: 10px;
-        color: white;
+        color: ${({ theme }) => theme.palette.contrast.main};
         width: 100%;
-        margin: 25px 110px 25px 110px;
+        margin: 0 110px 25px 110px;
+        border: 2px solid ${({ theme }) => theme.palette.bordercol.main};
         >div:first-of-type {
             width: 100%;
             margin: 0;
@@ -111,7 +111,7 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
             }
         }
         >div:last-of-type {
-            padding-top: 50px;
+            padding-top: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;

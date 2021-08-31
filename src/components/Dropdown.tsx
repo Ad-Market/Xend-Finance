@@ -57,13 +57,20 @@ const StyledContainer = styled(Box) <{ theme: any; }>`
     align-items: center;
     color: ${({ theme }) => theme.palette.landfilthelp.dark};
     font-size: 14px;
-    >div: nth-child(4) {
+    >div {
         text-align: center;
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 10px;
         padding-bottom: 30px;
         background: ${({ theme }) => '#000000'};
+        >div {
+            display: flex;
+            margin-top: 10px;
+            >div {
+                margin-left: 20px;
+            }
+        }
     }
 `;
 

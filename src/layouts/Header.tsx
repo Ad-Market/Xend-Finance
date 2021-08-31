@@ -3,8 +3,7 @@ import { Box } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
-import Button from '../components/Button';
-import AvartarIcon from '../assets/images/layout/avatar.png';
+// import Button from '../components/Button';
 
 interface Props {
     connected:any;
@@ -15,9 +14,9 @@ interface Props {
 
 const Header: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted }:any) => {
     const theme = useTheme();
-    const handleOmission = () => {
-        setOmitted(!omitted);
-    }
+    // const handleOmission = () => {
+    //     setOmitted(!omitted);
+    // }
     return (
         <StyledContainer theme={theme}>
             <Box>
@@ -42,7 +41,7 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
     >div:first-of-type {
         display: flex;
         flex-direction: column;
-        color: white;
+        color: ${({ theme }) => theme.palette.contrast.main};
         margin-left: 90px;
         width: 55%;
         >div:first-of-type {
@@ -57,26 +56,16 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         padding: 25px;
         align-items: left;
         width: 45%;
+        border: 2px solid ${({ theme }) => theme.palette.bordercol.main};
         background-color: rgba(255, 255, 255, 0.05);
         border-radius: 5px;
         >div:first-of-type {
             color: #8E93A4;
         }
         >div:last-of-type {
-            color: white;
+            color: ${({ theme }) => theme.palette.contrast.main};
             font-size: 24px;
         }
-    }
-`;
-
-const AvatarText = styled(Box)<{ theme:any; }>`
-    font-family: Fira Sans;
-    font-weight: 400;
-    font-size: 14px;
-    color: ${({ theme }) => theme.palette.topbarname.main};
-    >span {
-        font-weight: 700;
-        color: ${({ theme }) => theme.palette.topbarname.main};
     }
 `;
 
