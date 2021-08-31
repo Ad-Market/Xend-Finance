@@ -20,7 +20,6 @@ declare module '@material-ui/core/styles/createPalette' {
         inputgroup: PaletteOptions['primary'];
         dateindicator: PaletteOptions['primary'];
         fileinput: PaletteOptions['primary'];
-        checkbox: PaletteOptions['primary'];
         switchOff: PaletteOptions['primary'];
         switchOn: PaletteOptions['primary'];
         tabitem: PaletteOptions['primary'];
@@ -52,7 +51,6 @@ export const themeLight = createTheme({
         inputgroup: { main: '#F4F5F8', contrastText: '#6E6F9C' },
         dateindicator: { main: 'invert(0)' },
         fileinput: { main: '#BEC2CD', contrastText: '#979DAF', dark: 'transparent' },
-        checkbox: { main: 'transparent', contrastText: '#FFBB0B', dark: '#24265E' },
         switchOff: { main: '#FFFFFF', contrastText: '#DDDDDD' },
         switchOn: { main: '#FFFFFF', contrastText: '#FFBB0B' },
         //unsetted
@@ -69,11 +67,11 @@ export const themeDark = createTheme({
         topbarsearch: { main: 'rgba(46, 47, 100, .8)', light: '#4A4C84', dark: '#6E6F9C' },
 
         sidebartext: { main: '#92939A' },
-        themeswitch: { main: '#2E3065' },
-        buttonbg: { main: '#FFBB0B', contrastText: '#464771', dark: '#8889A5' },
+        themeswitch: { main: '#333333' },
+        buttonbg: { main: 'rgba(255, 255, 255, 0.14)', contrastText: '#464771', dark: '#8889A5' },
         landcardbg: { main: '#141652', contrastText: 'rgba(20, 22, 82, 0)' },
         landcardtxt: { main: '#9494AC', contrastText: '#FFFFFF' },
-        landfilthelp: { main: '#92939A', contrastText: 'rgba(50, 52, 92, .5)', dark: '#FFFFFF', light: '#FFFFFF' },
+        landfilthelp: { main: 'rgba(255, 255, 255, 0.14)', contrastText: 'rgba(50, 52, 92, .5)', dark: '#FFFFFF', light: '#FFFFFF' },
 
         dropdownbg: { main: 'rgb(50, 52, 92)' },
 
@@ -85,7 +83,6 @@ export const themeDark = createTheme({
         inputgroup: { main: '#06071B', contrastText: '#6E6F9C' },
         dateindicator: { main: 'invert(1)' },
         fileinput: { main: '#FFFFFF', contrastText: '#FFFFFF', dark: '#969696' },
-        checkbox: { main: '#FFBB0B', contrastText: '#24265E', dark: '#FFBB0B' },
 
         switchOff: { main: 'rgba(255, 187, 11,.87)', contrastText: '#02031C' },
         switchOn: { main: '#0F1030', contrastText: '#FFBB0B' },

@@ -1,19 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Box } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import styled from 'styled-components';
+import Dropdown from '../components/Dropdown';
+import ThemeSwitch from '../components/ThemeSwitch';
 
 import Button from '../components/Button';
-import AvartarIcon from '../assets/images/layout/avatar.png';
+import LogoIcon from '../assets/images/layout/Union.png';
+import Vector from '../assets/images/layout/Vector.png';
+import Polygon from '../assets/images/layout/Polygon.png';
+import Mainnet from '../assets/images/layout/Mainnet.png';
+import Ethereum from '../assets/images/layout/Ethereum.png';
 
 interface Props {
     connected:any;
     setConnected: any;
     omitted: any;
     setOmitted: any;
+    light: any;
+    setTheme: any;
 }
 
-const Topbar: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted }:any) => {
+const Topbar: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted, light, setTheme }:any) => {
     const theme = useTheme();
     const handleOmission = () => {
         setOmitted(!omitted);
@@ -21,41 +29,34 @@ const Topbar: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted 
     return (
         <StyledContainer theme={theme}>
             <Box>
-                <Box>
-                    <svg onClick={() => handleOmission()} width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                        <path d='M5.25 6H17.25' stroke='#FF9900' strokeWidth='1.5' strokeLinecap='round' />
-                        <path d='M5.25 12H12' stroke='#FF9900' strokeWidth='1.5' strokeLinecap='round' />
-                        <path d='M18.75 9.75L15.75 12L18.75 14.25' stroke='#FF9900' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
-                        <path d='M5.25 18H17.25' stroke='#FF9900' strokeWidth='1.5' strokeLinecap='round' />
-                    </svg>
-                    <Box ml='29px' display='flex'>
-                        <img src={AvartarIcon} alt='' />
-                    </Box>
-                    <AvatarText ml='8px' theme={theme}>
-                        <span>Rich</span> Quack
-                    </AvatarText>
-                    <SearchBox ml='102px' theme={theme}>
-                        <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                            <circle cx='11.0005' cy='11' r='8' strokeWidth='1.71429' />
-                            <path d='M20.5726 20.5711L17.144 17.1426' strokeWidth='1.71429' strokeLinecap='round' strokeLinejoin='round' />
-                        </svg>
-                        <input type='text' placeholder='Search for project, donations, or categories' />
-                    </SearchBox>
+                <Box ml='29px' display='flex'>
+                    <img src={LogoIcon} alt='' />
                 </Box>
+                <LogoText ml='8px' theme={theme}>
+                    <span>XEND</span>
+                    <span>Finance</span>
+                </LogoText>
             </Box>
             <Box>
-                { !connected &&
-                    <Button variant='outlined' title='CONNECT WALLET' onClick={() => alert()}/>
-                }
+                <Box>
+                    <Dropdown dwidth={100} values={['Layer v1','Layer v2']}/>
+                </Box>
+                <Box>
+                    <Dropdown dwidth={150} btnIcons={[Mainnet, Polygon, Ethereum]} values={['BSC Mainnet','Polygon', 'Ethereum']}/>
+                </Box>
+                <Box>
+                    <ThemeSwitch light={light} setTheme={setTheme} omitted={omitted} />
+                </Box>
+                <Box>
+                    <Button variant='outlined' title='Connect Wallet' btnIcon={Vector} onClick={() => alert()}/>
+                </Box>
             </Box>
         </StyledContainer>
     );
 }
 
 const StyledContainer = styled(Box)<{ theme:any; }>`
-    transition: .5s;
     background-color: ${({ theme }) => theme.palette.topbarbg.main};
-    height: 40px;
     padding: 28px 30px;
     display: flex;
     justify-content: space-between;
@@ -65,54 +66,35 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         >div:first-of-type {
             display: flex;
             align-items: center;
-            >svg:first-of-type path{
-                stroke: ${({ theme }) => theme.palette.topbaricon.main};
-            }
+            margin-left: 30px;
         }
     }
     >div:last-of-type {
         display: flex;
         align-items: center;
+        padding-left: 50px;
+        margin-right: 105px;
+        >div Button {
+            margin-left: 25px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        >Dropdown + Dropdown {
+            margin-left: 50px;
+        }
     }
 `;
 
-const AvatarText = styled(Box)<{ theme:any; }>`
+const LogoText = styled(Box)<{ theme:any; }>`
     font-family: Roboto;
     font-weight: 400;
     font-size: 14px;
     color: ${({ theme }) => theme.palette.topbarname.main};
+    display: flex;
+    flex-direction: column;
     >span {
         font-weight: 700;
         color: ${({ theme }) => theme.palette.topbarname.main};
-    }
-`;
-
-const SearchBox = styled(Box)<{ theme:any; }>`
-    display: none;
-    @media (min-width: 1080px) {
-        width: 500px;
-        display: flex;
-        border-radius: 141px;
-        border: 1px solid ${({ theme }) => theme.palette.topbarsearch.main};
-        padding: 9px 20px;
-        >svg {
-            fill: transparent;
-            * {
-                stroke: ${({ theme }) => theme.palette.topbarsearch.light};
-            }
-        }
-        >input {
-            background: transparent;
-            font-size: 14px;
-            flex: 1;
-            margin-left: 10px;
-            border: none;
-            outline: none;
-            color: ${({ theme }) => theme.palette.topbarsearch.dark};
-            &::placeholder {
-                color: ${({ theme }) => theme.palette.topbarsearch.dark};
-            }
-        }
     }
 `;
 

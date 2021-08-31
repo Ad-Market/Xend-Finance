@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Box } from '@material-ui/core';
 
 import Button from '../../Button';
-import Checkbox from '../../Checkbox';
 import { agreements } from '../../../config';
 
 interface Props {
@@ -25,12 +24,10 @@ const Step5: React.FC<Props> = ({ setStep, setOpen, setFinish }: any) => {
             <InputContainer mt='45px'>
                 {agreements.map((each: any, i: number) =>
                     <InputRow key={i}>
-                        <Box><Checkbox which={i} checks={checks} setChecks={setChecks} /></Box>
                         <Box color='#969696'>{each}</Box>
                     </InputRow>
                 )}
                 <InputRow>
-                    <Box><Checkbox which={-1} checks={checks} setChecks={setChecks} /></Box>
                     <Box color='#969696'>Agree to all</Box>
                 </InputRow>
             </InputContainer>

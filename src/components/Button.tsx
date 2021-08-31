@@ -5,7 +5,7 @@ import { useTheme } from '@material-ui/core/styles';
 import { ButtonProps } from './types';
 
 const Button = <E extends ElementType = 'button'>(props: ButtonProps<E>): JSX.Element => {
-    const { title, variant, fontSize, fontWeight, disabled, onClick } = props;
+    const { title, variant, fontSize, fontWeight, disabled, btnIcon, downArrow, onClick } = props;
     const theme = useTheme();
     return (
         <StyledContainer
@@ -16,23 +16,35 @@ const Button = <E extends ElementType = 'button'>(props: ButtonProps<E>): JSX.El
             disabled={disabled}
             onClick={() => onClick && onClick()}
         >
-            {title}
+            <img src={btnIcon} alt='' />
+            <span>{title}</span>
+            {downArrow && <span>&gt;</span>}
         </StyledContainer>
     );
 }
 
 const StyledContainer = styled.button<{ variant:string; theme:any; fontSize:any; fontWeight:any; disabled:any; }>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Poppins;
     font-size: ${({ fontSize }) => fontSize ? fontSize : '12px'};
     font-weight: ${({ fontWeight }) => fontWeight ? fontWeight : '600'};
     letter-spacing: 0.6px;
     border-radius: 54px;
     padding: 10px 25px;
-    border: 1px solid ${({ disabled }) => disabled ? 'transparent' : '#FFBB0B'};
+    border: transparent;
+    >img {
+        margin-right: 10px;
+    }
+    >span: nth-child(3) {
+        margin-left: 10px;
+        transform: rotate(90deg);
+    }
     background: ${({ theme, variant, disabled }) => {
         if(disabled) return theme.palette.buttonbg.contrastText;
         else {
-            if(variant === 'outlined') return 'transparent';
+            if(variant === 'outlined') return 'rgba(255, 255, 255, 0.14);';
             if(variant === 'contained') return theme.palette.buttonbg.main;
             return 'none';
         }
@@ -40,7 +52,7 @@ const StyledContainer = styled.button<{ variant:string; theme:any; fontSize:any;
     color: ${({ theme, variant, disabled }) => {
         if(disabled) return theme.palette.buttonbg.dark;
         else {
-            if(variant === 'outlined') return '#FFBB0B';
+            if(variant === 'outlined') return '#FFFFFF';
             if(variant === 'contained') return '#0F1030';
         }
     }};

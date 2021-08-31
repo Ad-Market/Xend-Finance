@@ -26,6 +26,8 @@ export interface BaseButtonProps extends LayoutProps, SpaceProps {
   fontSize?: string;
   fontWeight?: string;
   onClick?: any;
+  btnIcon?: any;
+  downArrow?: any;
 }
 
 export type ButtonProps<P extends ElementType = "button"> = PolymorphicComponentProps<P, BaseButtonProps>;

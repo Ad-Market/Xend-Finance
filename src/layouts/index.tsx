@@ -5,7 +5,9 @@ import { StylesProvider, MuiThemeProvider, ThemeProvider } from '@material-ui/co
 import styled from 'styled-components';
 
 import Topbar from './Topbar';
-import Sidebar from './Sidebar';
+import Header from './Header';
+import Vaultlist from './Vaultlist';
+import Footer from './Footer';
 
 import { themeLight, themeDark } from '../theme';
 
@@ -22,13 +24,10 @@ const Layout: React.FC<Props> = ({ children }: any) => {
             <MuiThemeProvider theme={light ? themeLight : themeDark}>
                 <ThemeProvider theme={light ? themeLight : themeDark}>
                     <StyledContainer>
-                        <Topbar connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
-                        <StyledWrapper>
-                            <Sidebar light={light} setTheme={setTheme} omitted={omitted} />
-                            <Body omitted={omitted} theme={light ? themeLight : themeDark}>
-                                {children}
-                            </Body>
-                        </StyledWrapper>
+                        <Topbar connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} light={light} setTheme={setTheme} />
+                        <Header connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
+                        <Vaultlist connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
+                        <Footer connected={connected} setConnected={setConnected} omitted={omitted} setOmitted={setOmitted} />
                     </StyledContainer>
                 </ThemeProvider>
             </MuiThemeProvider>
@@ -44,19 +43,6 @@ const StyledContainer = styled(Box)`
         font-family: Poppins;
         font-weight: 400;
     }
-`;
-
-const StyledWrapper = styled(Box)`
-    flex: 1;
-    display: flex;
-`;
-
-const Body = styled(Box)<{ omitted:boolean; theme:any; }>`
-    background-color: ${({ theme }) => theme.palette.topbarbg.main};
-    flex: 1;
-    padding-top: 10px;
-    padding-left: ${({ omitted }) => !omitted ? '42px' : '81px'};
-    padding-right: 42px;
 `;
 
 Layout.propTypes = {
