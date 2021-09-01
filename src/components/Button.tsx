@@ -27,9 +27,9 @@ const StyledContainer = styled.button<{ variant:string; theme:any; fontSize:any;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Poppins;
+    font-family: Fira Sans;
     font-size: ${({ fontSize }) => fontSize ? fontSize : '12px'};
-    font-weight: ${({ fontWeight }) => fontWeight ? fontWeight : '600'};
+    font-weight: ${({ fontWeight }) => fontWeight ? fontWeight : '100'};
     letter-spacing: 0.6px;
     border-radius: 54px;
     padding: 10px 25px;
@@ -37,9 +37,8 @@ const StyledContainer = styled.button<{ variant:string; theme:any; fontSize:any;
     >img {
         margin-right: 10px;
     }
-    >span: nth-child(3) {
-        margin-left: 10px;
-        transform: rotate(90deg);
+    >span {
+        font-weight: 700;
     }
     background: ${({ theme, variant, disabled }) => {
         if(disabled) return theme.palette.buttonbg.contrastText;

@@ -57,6 +57,9 @@ const StyledContainer = styled(Box) <{ theme: any; }>`
     align-items: center;
     color: ${({ theme }) => theme.palette.landfilthelp.dark};
     font-size: 14px;
+    >span: first-of-type {
+        font-weight: 700;
+    }
     >div {
         text-align: center;
         padding-left: 20px;
@@ -66,8 +69,11 @@ const StyledContainer = styled(Box) <{ theme: any; }>`
         background: ${({ theme }) => '#000000'};
         >div {
             display: flex;
+            align-items:center;
             margin-top: 10px;
             >div {
+                font-size: 14px;
+                font-weight: 700;
                 margin-left: 20px;
             }
         }

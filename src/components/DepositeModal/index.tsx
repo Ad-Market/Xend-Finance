@@ -93,17 +93,19 @@ const DepositeModal: React.FC<Props> = ({ open, setOpen, assetIcon, assetName, f
 }
 
 const LogoText = styled(Box)<{ theme:any; }>`
-    font-family: Roboto;
+    font-family: Fira Sans;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 18px;
     color: ${({ theme }) => theme.palette.topbarname.main};
     display: flex;
     flex-direction: column;
+    font-weight: 700;
     >span: first-of-type {
-        font-weight: 700;
         color: ${({ theme }) => theme.palette.topbarname.main};
     }
     >span: last-of-type {
+        width: 200px;
+        font-size: 15px;
         color: #84858A;
     }
 `;
@@ -116,6 +118,8 @@ const Container = styled(Box)<{ theme:any; }>`
     transform: translate(-50%, -50%);
     background: transparent;
     >div >table {
+        padding-top: 40px;
+        padding-left: 30px;
         width: 100%;
         text-align: left;
         >tbody tr td:nth-of-type(3) {
@@ -128,6 +132,7 @@ const InputValue = styled(Box)`
     display: flex;
     flex-direction: row;
     margin-top: 40px;
+    margin-left: -10px;
     >div + div {
         margin-left: 20px;
     }
@@ -137,8 +142,10 @@ const ButtonGroup = styled(Box)<{ theme:any; }>`
     display: flex;
     flex-direction: row;
     margin-top: 40px;
+    margin-bottom: 60px;
+    margin-left: -10px;
     >Button {
-        width: 320px;
+        width: 350px;
         height: 60px;
         color: ${({ theme }) => theme.palette.contrast.main};
         font-size: 20px;
@@ -155,12 +162,16 @@ const Deposit = styled(Box)<{ theme:any; }>`
     display: flex;
     flex-direction: column;
     background-color: transparent;
+    >span: first-of-type {
+        color: ${({ theme }) => theme.palette.contrast.main};
+    }
     >div: first-of-type {
         padding: 20px;
         border-radius: 40px;
         border: 2px solid #707070;
         display: flex;
         flex-direction: row;
+        width: 300px;
         >input {
             text-align: center;
             border: none;
@@ -188,12 +199,16 @@ const Withdraw = styled(Box)<{ theme:any; }>`
     display: flex;
     flex-direction: column;
     background-color: transparent;
+    >span: first-of-type {
+        color: ${({ theme }) => theme.palette.contrast.main};
+    }
     >div: first-of-type {
         padding: 20px;
         border-radius: 40px;
         border: 2px solid #707070;
         display: flex;
         flex-direction: row;
+        width: 300px;
         >input {
             text-align: center;
             border: none;
@@ -222,16 +237,23 @@ const Wrapper = styled(Box)<{ theme:any; }>`
 `;
 
 const Logo = styled(Box)<{ theme:any; }>`
-    font-family: Roboto;
+    font-family: Fira Sans;
     font-weight: 400;
     font-size: 14px;
     display:flex;
     flex-direction: row;
     align-items: center;
+    >div {
+        >img {
+            margin-left: 10px;
+            width: 70px;
+            height: 70px;
+        }
+    }
 `;
 
 const Topbar = styled(Box)<{ theme:any; }>`
-    font-family: Roboto;
+    font-family: Fira Sans;
     font-weight: 400;
     font-size: 14px;
     display:flex;
@@ -240,7 +262,7 @@ const Topbar = styled(Box)<{ theme:any; }>`
     align-items: left;
     margin-left: -30px;
     >div + div {
-        margin-left: 460px;
+        margin-left: 400px;
     }
     >div: last-of-type {
         display: flex;
@@ -249,6 +271,7 @@ const Topbar = styled(Box)<{ theme:any; }>`
         font-size: 24px;
         width: 50px;
         height: 50px;
+        margin-right: 20px;
         border-radius: 25px;
         background-color: rgba(255, 255, 255, 0.1);
     }

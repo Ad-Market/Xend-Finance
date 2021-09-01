@@ -59,6 +59,7 @@ const StyledContainer = styled.tr <{ theme: any; }>`
         margin-top: 30px;
         margin-bottom: 30px;
         text-align: center;
+        margin-left: 40px;
         color: ${({ theme }) => theme.palette.contrast.main};
         >Button {
             background-color: ${({ theme }) => theme.palette.btnbg.main};
@@ -67,11 +68,29 @@ const StyledContainer = styled.tr <{ theme: any; }>`
             padding: 5px;
         }
     }
+    >td {
+        text-align: left;
+        font-weight: 700;
+        >div: last-of-type {
+            font-weight: 700;
+        }
+    }
+    >td: nth-child(2) {
+        padding-left: 70px;
+    }
     >td: nth-child(4) {
         color: #00D395;
     }
     >td: nth-child(7) {
-        padding-right: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        >Button {
+            padding: 10px;
+            font-size: 16px;
+            width: 160px;
+            margin-right: 50px;
+        }
     }
     >td:first-of-type {
         display: flex;

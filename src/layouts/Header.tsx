@@ -34,7 +34,7 @@ const Header: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted 
 const StyledContainer = styled(Box)<{ theme:any; }>`
     font-family: Fira Sans;
     background-color: ${({ theme }) => theme.palette.topbarbg.main};
-    padding: 28px 30px;
+    padding: 40px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,18 +42,22 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         display: flex;
         flex-direction: column;
         color: ${({ theme }) => theme.palette.contrast.main};
-        margin-left: 90px;
+        margin-left: 60px;
         width: 55%;
         >div:first-of-type {
             font-size: 26px;
+            font-weight: 700;
         }
+        >p {
+            font-size: 14px;
+        }        
     }
     >div:last-of-type {
         display: flex;
         flex-direction: column;
-        margin-left: 150px;
+        margin-left: 190px;
         margin-right: 80px;
-        padding: 25px;
+        padding: 30px;
         align-items: left;
         width: 45%;
         border: 2px solid ${({ theme }) => theme.palette.bordercol.main};
@@ -61,10 +65,15 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         border-radius: 5px;
         >div:first-of-type {
             color: #8E93A4;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
         >div:last-of-type {
+            font-family: Fira Code;
+            font-weight: 700;
             color: ${({ theme }) => theme.palette.contrast.main};
-            font-size: 24px;
+            font-size: 28px;
         }
     }
 `;

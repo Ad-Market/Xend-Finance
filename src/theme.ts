@@ -64,7 +64,7 @@ export const themeLight = createTheme({
         tabitem: { main: '#969696' },
         tablebody: { main: 'rgb(245,245,245)'},
         contrast: { main: 'rgb(0,0,0)'},
-        modalbg: { main: 'rgba(255, 255, 255, 0.7)'},
+        modalbg: { main: 'rgba(255, 255, 255)'},
         btnbg: { main: '#555555'},
         bordercol: { main: 'rgb(0,0,0)'},
         footercol: { main: 'rgb(0,0,0)'},
@@ -81,7 +81,7 @@ export const themeDark = createTheme({
         topbarsearch: { main: 'rgba(46, 47, 100, .8)', light: '#4A4C84', dark: '#6E6F9C' },
 
         sidebartext: { main: '#92939A' },
-        themeswitch: { main: '#333333' },
+        themeswitch: { main: 'linear-gradient(280.47deg, #2042B8 -141.14%, #FF6600 207.56%)' },
         buttonbg: { main: 'rgba(255, 255, 255, 0.14)', contrastText: '#464771', dark: '#8889A5' },
         landcardbg: { main: '#141652', contrastText: 'rgba(20, 22, 82, 0)' },
         landcardtxt: { main: '#9494AC', contrastText: '#FFFFFF' },
@@ -100,6 +100,7 @@ export const themeDark = createTheme({
 
         switchOff: { main: 'rgba(255, 187, 11,.87)', contrastText: '#02031C' },
         switchOn: { main: '#0F1030', contrastText: '#FFBB0B' },
+
         //unsetted
         tabitem: { main: 'rgba(255,255,255, 0.7)' },
         tablebody: { main: '#14163B'},

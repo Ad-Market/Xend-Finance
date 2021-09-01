@@ -29,7 +29,7 @@ const Topbar: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted 
                 <Box ml='29px' display='flex'>
                     <img src={LogoIcon} alt='' />
                 </Box>
-                <LogoText ml='8px' theme={theme}>
+                <LogoText ml='5px' theme={theme}>
                     <span>XEND</span>
                     <span>Finance</span>
                 </LogoText>
@@ -39,7 +39,7 @@ const Topbar: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted 
                     <Dropdown dwidth={100} values={['Layer v1','Layer v2']}/>
                 </Box>
                 <Box>
-                    <Dropdown dwidth={150} btnIcons={[Mainnet, Polygon, Ethereum]} values={['BSC Mainnet','Polygon', 'Ethereum']}/>
+                    <Dropdown dwidth={130} btnIcons={[Mainnet, Polygon, Ethereum]} values={['BSC Mainnet','Polygon', 'Ethereum']}/>
                 </Box>
                 <Box>
                     <Button variant='outlined' title='Connect Wallet' btnIcon={Vector} onClick={() => alert()}/>
@@ -60,7 +60,20 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         >div:first-of-type {
             display: flex;
             align-items: center;
-            margin-left: 30px;
+            margin-left: 10px;
+            >img {
+                width: 26px;
+                height: 30px;    
+            }
+        }
+        >div:last-of-type {
+            >span:first-of-type {
+                font-size: 17px;
+            }    
+            >span:last-of-type {
+                font-size: 19px;
+                font-weight: 500;
+            }    
         }
     }
     >div:last-of-type {
@@ -68,11 +81,14 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         align-items: center;
         padding-left: 50px;
         margin-right: 105px;
-        >div Button {
-            background-color: ${({ theme }) => theme.palette.topbtn.main};
-            margin-left: 25px;
-            padding-top: 15px;
-            padding-bottom: 15px;
+        >div:last-of-type {
+            >Button {
+                font-size: 15px;
+                background-color: ${({ theme }) => theme.palette.topbtn.main};
+                margin-left: 25px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
         }
         >Dropdown + Dropdown {
             margin-left: 50px;
@@ -81,7 +97,7 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
 `;
 
 const LogoText = styled(Box)<{ theme:any; }>`
-    font-family: Roboto;
+    font-family: Fira Sans;
     font-weight: 400;
     font-size: 14px;
     color: ${({ theme }) => theme.palette.contrast.main};

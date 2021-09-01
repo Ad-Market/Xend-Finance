@@ -54,14 +54,15 @@ const Footer: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted,
 
 const StyledContainer = styled(Box) <{ theme: any; }>`
     background-color: ${({ theme }) => theme.palette.topbarbg.main};
-    padding: 28px 30px;
+    padding: 10px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: ${({ theme }) => theme.palette.footercol.main};
     >div:first-of-type {
         display: flex;
-        margin-left: 55px;
+        margin-left: 30px;
+        font-size: 14px;
     }
     >div:last-of-type {
         display: flex;
@@ -107,11 +108,19 @@ const ShowTheme = styled(Box) <{ theme: any; }>`
         color: ${({ theme }) => theme.palette.footercol.main};
         >div: first-of-type {
             margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
         }
         >div: nth-child(2) {
             display: flex;
             flex-direction: row;
             align-items: center;
+            cursor: pointer;
+            >div: first-of-type {
+                font-size: 14px;
+                font-weight: 700;
+            }
             >div + div {
                 margin-left: 3px;
             }
@@ -120,6 +129,7 @@ const ShowTheme = styled(Box) <{ theme: any; }>`
             margin-top: 35px;
             margin-left: 30px;
             color: #53596E;
+            font-weight: 700;
         }
     }
 `;

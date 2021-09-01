@@ -28,12 +28,12 @@ const Vaultlist: React.FC<Props> = ({ connected, setConnected, omitted, setOmitt
                     <Box>
                         <table>
                             <thead>
-                                <th {...{width:"20%"}}>Asset</th>
-                                <th {...{width:"10%"}}>Fees</th>
-                                <th {...{width:"10%"}}>Balance</th>
-                                <th {...{width:"15%"}}>NetAPY</th>
+                                <th {...{width:"10%"}}>Asset</th>
+                                <th {...{width:"13%"}}>Fees</th>
+                                <th {...{width:"13%"}}>Balance</th>
+                                <th {...{width:"11%"}}>NetAPY</th>
                                 <th {...{width:"15%"}}>Vault Assets</th>
-                                <th {...{width:"20%"}}>Available to deposit</th>
+                                <th {...{width:"15%"}}>Available to deposit</th>
                                 <th></th>
                             </thead>
                             <tbody>
@@ -85,13 +85,14 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
     >div:first-of-type {
         display: flex;
         flex-direction: column;
-        padding: 25px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         align-items: center;
         background-color: rgba(255, 255, 255, 0.05);
         border-radius: 10px;
         color: ${({ theme }) => theme.palette.contrast.main};
         width: 100%;
-        margin: 0 110px 25px 110px;
+        margin: 0 110px 25px 80px;
         border: 2px solid ${({ theme }) => theme.palette.bordercol.main};
         >div:first-of-type {
             width: 100%;
@@ -102,9 +103,21 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
                 display: flex;
                 flex-direction: row;
                 >table {
-                    >thead tr th {
-                        margin-bottom: 20px;
+                    >thead {
+                        text-align: left;
+                        th: nth-of-type(1) {
+                            padding-left: 70px;
+                        }
+                        th: nth-of-type(2) {
+                            padding-left: 70px;
+                        }
+                        th {
+                            font-weight: 700;
+                            padding-bottom: 20px;
+                        }
                     }
+                    border-collapse: collapse;
+                    width: 100%;
                     border-collapse: collapse;
                     width: 100%;
                 }
@@ -117,7 +130,15 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
             justify-content: center;
             align-items: center;
             color: #8B8B8B;
-        }
+            font-size: 16px;
+            >div {
+                font-weight: 700;
+            }
+            >div: last-of-type {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+    }
     }
 `;
 
