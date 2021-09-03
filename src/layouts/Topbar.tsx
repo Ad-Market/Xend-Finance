@@ -37,6 +37,7 @@ const Topbar: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted 
             <Box>
                 <Box>
                     <Dropdown dwidth={100} values={['Layer v1','Layer v2']}/>
+                    <Dropdown dwidth={70} values={['DeFi v1','DeFi v2']}/>
                 </Box>
                 <Box>
                     <Dropdown dwidth={130} btnIcons={[Mainnet, Polygon, Ethereum]} values={['BSC Mainnet','Polygon', 'Ethereum']}/>
@@ -90,8 +91,31 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
                 padding-bottom: 15px;
             }
         }
-        >Dropdown + Dropdown {
-            margin-left: 50px;
+        >div: first-of-type {
+            >div: first-of-type {
+                display: flex;
+            }
+            >div: last-of-type {
+                display: none;
+            }
+        }
+        // >Dropdown + Dropdown {
+        //     margin-left: 50px;
+        // }
+    }
+    @media (max-width: 950px) {
+        >div: last-of-type {
+            >div: first-of-type {
+                >div: first-of-type {
+                    display: none;
+                }
+                >div: last-of-type {
+                    display: flex;
+                }
+            }
+            >div: last-of-type {
+                display: none;
+            }
         }
     }
 `;
@@ -103,8 +127,13 @@ const LogoText = styled(Box)<{ theme:any; }>`
     color: ${({ theme }) => theme.palette.contrast.main};
     display: flex;
     flex-direction: column;
-    >span {
+    >span: first-of-type {
         font-weight: 700;
+        color: ${({ theme }) => theme.palette.contrast.main};
+    }
+    >span: nth-of-type(2) {
+        font-size: 16px !important;
+        font-weight: 400 !important;
         color: ${({ theme }) => theme.palette.contrast.main};
     }
 `;

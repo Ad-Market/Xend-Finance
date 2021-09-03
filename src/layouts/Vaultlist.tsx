@@ -4,6 +4,7 @@ import { useTheme } from '@material-ui/core/styles';
 import styled from 'styled-components';
 
 import Vault from '../components/Vault';
+import Vault_resp from '../components/Vault_resp';
 // import Button from '../components/Button';
 import vault1 from '../assets/images/vaults/vault1.png';
 import vault2 from '../assets/images/vaults/vault2.png';
@@ -73,6 +74,17 @@ const Vaultlist: React.FC<Props> = ({ connected, setConnected, omitted, setOmitt
                     <Box>Join Our Announcement Channel for Update</Box>
                 </Box>
             </Box>
+            <Box>
+                <Vault_resp
+                    assetIcon={vault2}
+                    assetName={'COMP'}
+                    fees={'V2'}
+                    balance={'000.0'}
+                    netAPY={'45'}
+                    vaultasset={'000.0'}
+                    availableDeposite={'000.0'}
+                />
+            </Box>
         </StyledContainer>
     );
 }
@@ -138,7 +150,28 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
                 cursor: pointer;
                 text-decoration: underline;
             }
+        }
     }
+    >div: last-of-type {
+        display: none;
+    }
+    @media (max-width: 950px) {
+        >div: first-of-type {
+            display: none;
+        }
+        >div: last-of-type {
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            color: ${({ theme }) => theme.palette.contrast.main};
+            width: 100%;
+            margin: 0 110px 25px 80px;
+            border: 2px solid ${({ theme }) => theme.palette.bordercol.main};
+        }
     }
 `;
 

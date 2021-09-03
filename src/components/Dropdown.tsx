@@ -54,6 +54,7 @@ const StyledContainer = styled(Box) <{ theme: any; }>`
     padding-bottom: 10px;
     background: ${({ theme }) => theme.palette.landfilthelp.main};
     display: flex;
+    justify-content: space-around;
     align-items: center;
     color: ${({ theme }) => theme.palette.landfilthelp.dark};
     font-size: 14px;

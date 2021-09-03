@@ -44,7 +44,7 @@ const Footer: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted,
                                 </Box>
                             </ShowTheme>
                         }
-                        <Button variant='outlined' title='. . .' onClick={() => { setOpenTheme(!isOpenTheme); }} />
+                        <Button variant='outlined' title='· · ·' onClick={() => { setOpenTheme(!isOpenTheme); }} />
                     </Box>
                 </Box>
             </StyledContainer>
@@ -54,7 +54,7 @@ const Footer: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted,
 
 const StyledContainer = styled(Box) <{ theme: any; }>`
     background-color: ${({ theme }) => theme.palette.topbarbg.main};
-    padding: 10px 30px;
+    padding: 30px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,21 +68,27 @@ const StyledContainer = styled(Box) <{ theme: any; }>`
         display: flex;
         flex-direction: row;
         >div:first-of-type {
-            cursor: pointer;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             >div:first-of-type {
                 margin-right: 20px;
+                cursor: pointer;
+            }
+            >div:nth-of-type(2) {
+                cursor: pointer;
             }
             >div:last-of-type {
                 margin-left: 20px;
                 margin-right: 20px;
+                cursor: pointer;
             }
         }
         div: last-of-type {
             >Button {
+                padding-top: 5px;
+                padding-bottom: 5px;
                 margin-right: 60px;
                 color: ${({ theme }) => theme.palette.footercol.main};
                 border: 2px solid ${({ theme }) => theme.palette.bordercol.main};

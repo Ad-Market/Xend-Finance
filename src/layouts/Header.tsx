@@ -20,7 +20,7 @@ const Header: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted 
     return (
         <StyledContainer theme={theme}>
             <Box>
-                <Box>Xend Finance Layer 2 DeFi protocol</Box>
+                <Box><span>Xend Finance</span> Layer 2 DeFi protocol</Box>
                 <p>Xend Finance has composed multiple Layer 1 DeFi protocols across different blockchains to provide better yields, as opposed to using Layer 1 DeFi yield platforms individually.</p>
             </Box>
             <Box>
@@ -47,6 +47,10 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         >div:first-of-type {
             font-size: 26px;
             font-weight: 700;
+            >span {
+                font-size: 26px;
+                font-weight: 700;
+            }
         }
         >p {
             font-size: 14px;
@@ -74,6 +78,22 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
             font-weight: 700;
             color: ${({ theme }) => theme.palette.contrast.main};
             font-size: 28px;
+        }
+    }
+    @media (max-width: 950px) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        >div: first-of-type {
+            >div: first-of-type {
+                >span {
+                    display: none;
+                }
+            }
+        }
+        >div: last-of-type {
+            margin-left: 50px;
+            width: calc(100% - 200px);
         }
     }
 `;

@@ -75,7 +75,7 @@ export const themeLight = createTheme({
 
 export const themeDark = createTheme({
     palette: {
-        topbarbg: { main: '#0F1030' },
+        topbarbg: { main: '#0F1020' },
         topbaricon: { main: '#FFDB20' },
         topbarname: { main: '#FCFCFC' },
         topbarsearch: { main: 'rgba(46, 47, 100, .8)', light: '#4A4C84', dark: '#6E6F9C' },

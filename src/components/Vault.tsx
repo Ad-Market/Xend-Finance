@@ -44,7 +44,7 @@ const Vault: React.FC<Props> = ({ assetIcon, assetName, fees, balance, netAPY, v
                 {availableDeposite}
             </td>
             <td>
-                <Button variant='outlined' title='Open Vault >' onClick={() => {setOpenDepositeModal(!isOpenDepositeModal);}} />
+                <Button variant='outlined' title='Open Vault&nbsp;&nbsp; >' onClick={() => {setOpenDepositeModal(!isOpenDepositeModal);}} />
             </td>
         </StyledContainer>
     );
@@ -58,21 +58,17 @@ const StyledContainer = styled.tr <{ theme: any; }>`
     >td {
         margin-top: 30px;
         margin-bottom: 30px;
-        text-align: center;
         margin-left: 40px;
         color: ${({ theme }) => theme.palette.contrast.main};
-        >Button {
-            background-color: ${({ theme }) => theme.palette.btnbg.main};
-            color: #FF6600;
-            width: 110px;
-            padding: 5px;
-        }
-    }
-    >td {
         text-align: left;
         font-weight: 700;
         >div: last-of-type {
             font-weight: 700;
+        }
+        >Button {
+            background-color: ${({ theme }) => theme.palette.btnbg.main};
+            color: #FF6600;
+            width: 110px;
         }
     }
     >td: nth-child(2) {
@@ -82,9 +78,6 @@ const StyledContainer = styled.tr <{ theme: any; }>`
         color: #00D395;
     }
     >td: nth-child(7) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         >Button {
             padding: 10px;
             font-size: 16px;
@@ -97,6 +90,11 @@ const StyledContainer = styled.tr <{ theme: any; }>`
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        >div: first-of-type {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         >div + div {
             margin-left: 20px;
         }

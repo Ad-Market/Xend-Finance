@@ -16,7 +16,7 @@ const Button = <E extends ElementType = 'button'>(props: ButtonProps<E>): JSX.El
             disabled={disabled}
             onClick={() => onClick && onClick()}
         >
-            <img src={btnIcon} alt='' />
+            {btnIcon && <img src={btnIcon} alt='' />}
             <span>{title}</span>
             {downArrow && <span>&gt;</span>}
         </StyledContainer>
@@ -25,6 +25,7 @@ const Button = <E extends ElementType = 'button'>(props: ButtonProps<E>): JSX.El
 
 const StyledContainer = styled.button<{ variant:string; theme:any; fontSize:any; fontWeight:any; disabled:any; }>`
     display: flex;
+    flex-direction: center;
     justify-content: center;
     align-items: center;
     font-family: Fira Sans;
