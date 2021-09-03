@@ -84,6 +84,15 @@ const Vaultlist: React.FC<Props> = ({ connected, setConnected, omitted, setOmitt
                     vaultasset={'000.0'}
                     availableDeposite={'000.0'}
                 />
+                <Vault_resp
+                    assetIcon={vault2}
+                    assetName={'COMP'}
+                    fees={'V2'}
+                    balance={'000.0'}
+                    netAPY={'45'}
+                    vaultasset={'000.0'}
+                    availableDeposite={'000.0'}
+                />
             </Box>
         </StyledContainer>
     );
@@ -162,15 +171,10 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         >div: last-of-type {
             display: flex;
             flex-direction: column;
-            padding-top: 20px;
-            padding-bottom: 20px;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            color: ${({ theme }) => theme.palette.contrast.main};
             width: 100%;
-            margin: 0 110px 25px 80px;
-            border: 2px solid ${({ theme }) => theme.palette.bordercol.main};
+            padding-left: 30px;
+            padding-right: 30px;
         }
     }
 `;

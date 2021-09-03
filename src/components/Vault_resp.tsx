@@ -72,18 +72,27 @@ const StyledContainer = styled.tr <{ theme: any; }>`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: calc(100% - )
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    color: ${({ theme }) => theme.palette.contrast.main};
+    margin-bottom: 25px;
+    border: 2px solid ${({ theme }) => theme.palette.bordercol.main};
+    padding-top: 20px;
+    padding-bottom: 20px;
     >div: first-of-type {
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-bottom: 20px;
+        margin-left: 50px;
         >div + div {
             margin-left: 10px;
         }
     }
     >div: nth-of-type(2) {
         width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
         text-align: left;
         >table {
             width: 100%;
@@ -94,15 +103,11 @@ const StyledContainer = styled.tr <{ theme: any; }>`
                 >td: nth-child(3) {
                     color: #00D395;
                 }
-                // >td {
-                //     padding-left {
-                //         padding-left: 40px;
-                //     }
-                // }
             }
         }
     }
     >div: nth-of-type(3) {
+        margin-left: 50px;
         margin-top: 20px;
         margin-bottom: 20px;
     }

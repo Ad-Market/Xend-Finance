@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ThemeSwitch from '../components/ThemeSwitch';
 
 import Button from '../components/Button';
+import Vector from '../assets/images/layout/Vector.png';
 
 interface Props {
     connected: any;
@@ -26,6 +27,9 @@ const Footer: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted,
             <StyledContainer theme={theme}>
                 <Box>Copyright © Xend Finance 2021. All rights reserved.</Box>
                 <Box>
+                    <Button variant='outlined' title='Connect Wallet' btnIcon={Vector} onClick={() => alert()}/>
+                </Box>
+                <Box>
                     <Box>
                         <Box>About</Box>
                         <Box>Docs</Box>
@@ -43,6 +47,22 @@ const Footer: React.FC<Props> = ({ connected, setConnected, omitted, setOmitted,
                                     <Box>Version 1.9</Box>
                                 </Box>
                             </ShowTheme>
+                        }
+                        {isOpenTheme &&
+                            <RespTheme theme={theme} position='absolute' bottom='50px' left='50%'>
+                                <Box>
+                                    <Box>About</Box>
+                                    <Box>Docs</Box>
+                                    <Box>Github</Box>
+                                    <Box>Telegram</Box>
+                                    <Box>BUY XEND</Box>
+                                    <Box>
+                                        <Box>{!omitted ? (light ? 'Light' : 'Dark') : null} Theme</Box>
+                                        <ThemeSwitch light={light} setTheme={setTheme} omitted={omitted} />
+                                    </Box>
+                                    <Box>Version 1.9</Box>
+                                </Box>
+                            </RespTheme>
                         }
                         <Button variant='outlined' title='· · ·' onClick={() => { setOpenTheme(!isOpenTheme); }} />
                     </Box>
@@ -63,6 +83,9 @@ const StyledContainer = styled(Box) <{ theme: any; }>`
         display: flex;
         margin-left: 30px;
         font-size: 14px;
+    }
+    >div: nth-of-type(2) {
+        display: none;
     }
     >div:last-of-type {
         display: flex;
@@ -95,8 +118,33 @@ const StyledContainer = styled(Box) <{ theme: any; }>`
             }
         }
     }
+    @media (max-width: 950px) {
+        >div: first-of-type {
+            display: none;
+        }
+        >div: nth-of-type(2) {
+            display: flex;
+        }
+            >div: last-of-type {
+            >div:first-of-type {
+                display: none;
+            }
+        }
+        >div: last-of-type {
+            >div: last-of-type {
+                >Button {
+                    margin: 0;
+                }
+            }
+        }
+    }
 `;
 
+const RespTheme = styled(Box) <{ theme: any; }>`
+    @media (min-width: 950px) {
+        display: none;
+    }
+`;
 const ShowTheme = styled(Box) <{ theme: any; }>`
     transform: translate(-150px,0px);
     z-index: 99;
@@ -137,6 +185,9 @@ const ShowTheme = styled(Box) <{ theme: any; }>`
             color: #53596E;
             font-weight: 700;
         }
+    }
+    @media (max-width: 950px) {
+        display: none;
     }
 `;
 

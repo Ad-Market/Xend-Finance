@@ -105,6 +105,7 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
     }
     @media (max-width: 950px) {
         >div: last-of-type {
+            margin-right: 10px;
             >div: first-of-type {
                 >div: first-of-type {
                     display: none;

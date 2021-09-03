@@ -84,16 +84,30 @@ const StyledContainer = styled(Box)<{ theme:any; }>`
         display: flex;
         flex-direction: column;
         align-items: start;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin: 0;
+        min-width: 320px;
         >div: first-of-type {
+            min-width: 320px;
+            margin: 0;
+            padding: 0;
+            margin-left: 10px;
             >div: first-of-type {
+                min-width: 320px;
                 >span {
                     display: none;
+                }
+                >p {
+                    width: 320px;
                 }
             }
         }
         >div: last-of-type {
-            margin-left: 50px;
-            width: calc(100% - 200px);
+            position: relative;
+            width: calc(100% - 80px);
+            margin: 0;
+            margin-left: 10px;
         }
     }
 `;
